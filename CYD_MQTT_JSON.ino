@@ -1,4 +1,5 @@
 /*******************************************************************
+    THis is a fork of:
     A touch screen test for the ESP32 Cheap Yellow Display.
 
     https://github.com/witnessmenow/ESP32-Cheap-Yellow-Display
@@ -10,6 +11,10 @@
     Written by Brian Lough
     YouTube: https://www.youtube.com/brianlough
     Twitter: https://twitter.com/witnessmenow
+
+    Modified by Simon Walters (@cymplecy@fosstodon.org)
+    Adds ability to publish and subscribe to an MQTT broker 
+    using MQTT and JSON
  *******************************************************************/
 
 // Make sure to copy the UserSetup.h file into the library as
@@ -57,10 +62,11 @@
 
 #include <ArduinoJson.h>
 
-// Update these with values suitable for your network.
-const char* ssid = "###";
-const char* password = "###";
-const char* mqtt_server = "###";
+// create a file secret.h in the same folder as this sketch to hold your own values
+#include "secret.h"
+const char ssid[] = SSID;
+const char password[] = PASSWORD;
+byte mqtt_server[] = MQTT_SERVER;
 #define mqtt_port 1883
 // ----------------------------
 
